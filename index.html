@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hazem Zakaria (3.141Hz) · Creative Technologist, Cairo</title>
+<meta name="description" content="Hazem Zakaria (3.141Hz) is a creative technologist and projection-mapping artist in Cairo, Egypt, building laser, LED and projection shows in TouchDesigner, Unreal Engine and Resolume.">
+<link rel="canonical" href="https://hazemzak.github.io/">
+<meta property="og:title" content="Hazem Zakaria (3.141Hz)">
+<meta property="og:description" content="Creative technologist and projection-mapping artist. Laser, LED and projection shows. Cairo, Egypt.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://hazemzak.github.io/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Hazem Zakaria",
+  "alternateName": ["3.141Hz", "Hazem Elhakeem", "Hazem Zak"],
+  "url": "https://hazemzak.github.io/",
+  "jobTitle": "Creative Technologist",
+  "description": "Creative technologist and projection-mapping artist building laser, LED and projection shows.",
+  "address": {"@type": "PostalAddress", "addressLocality": "Cairo", "addressCountry": "EG"},
+  "alumniOf": [
+    {"@type": "CollegeOrUniversity", "name": "Cologne Game Lab, TH Köln"},
+    {"@type": "CollegeOrUniversity", "name": "ifs Internationale Filmschule Köln"},
+    {"@type": "CollegeOrUniversity", "name": "German University in Cairo"}
+  ],
+  "knowsAbout": ["Projection mapping", "Laser shows", "LED walls", "TouchDesigner", "Unreal Engine", "Resolume", "Cinema 4D", "Creative technology"],
+  "sameAs": [
+    "https://www.instagram.com/3.141hz/",
+    "https://www.linkedin.com/in/hazemzakaria3141hz/",
+    "https://www.behance.net/hazemVIII",
+    "https://github.com/hazemzak",
+    "https://www.filmschule.de/en/filmschule/people/hazem-elhakeem"
+  ]
+}
+</script>
+<style>
+:root{
+  /* CR1, key 9 (blue / Ab), see cr1.manifest.json */
+  --b9-dark:#07112c; --b9-mid:#2a4fc4; --b9-high:#bfd0ff;   /* tonic, three octaves */
+  --bv10:#8a7bff;                                          /* anchor: wheel neighbour, small area */
+  --o3:#ff7a1a;                                            /* main character: the laser */
+  --text:#f1f2f6;                                          /* neutral */
+  --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --body:"Myriad Pro","Segoe UI",system-ui,sans-serif;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,monospace;
+  --ease:cubic-bezier(.2,0,.1,1);
+}
+*{box-sizing:border-box;margin:0}
+html{background:var(--b9-dark)}
+body{background:var(--b9-dark);color:var(--text);font:400 17px/1.55 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--o3);outline-offset:4px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+
+/* hero */
+.hero{min-height:92vh;display:grid;grid-template-rows:auto 1fr auto;padding-block:28px 40px}
+.top{display:flex;justify-content:space-between;font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--bv10)}
+.name{align-self:end;font:800 clamp(56px,13vw,176px)/.88 var(--sans);letter-spacing:-.045em;text-transform:uppercase}
+.name span{display:block}
+.wave{width:100%;height:120px;display:block;margin:18px 0 6px}
+.lock{display:flex;align-items:baseline;gap:14px;font:700 clamp(22px,3vw,34px)/1 var(--sans);letter-spacing:-.02em}
+.lock i{flex:0 0 clamp(60px,10vw,140px);height:2px;background:var(--text);font-style:normal;align-self:center}
+.lock b{color:var(--o3)}
+.claim{max-width:34ch;margin-top:22px;font-size:clamp(18px,1.6vw,21px);opacity:.92}
+
+/* sections */
+section{padding-block:clamp(56px,9vw,112px);border-top:1px solid var(--b9-mid)}
+.label{font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--bv10);margin-bottom:28px}
+.lead{color:var(--b9-high);font:700 clamp(28px,4vw,52px)/1.05 var(--sans);letter-spacing:-.03em;max-width:20ch}
+.chain{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px}
+.chain div{padding:22px 22px 26px 0;border-top:2px solid var(--text)}
+.chain div+div{padding-left:22px;border-left:1px solid var(--b9-mid)}
+.chain h3{font:800 20px/1.1 var(--sans);text-transform:uppercase;letter-spacing:-.01em;margin-bottom:10px}
+.chain p{font-size:16px;opacity:.85}
+.tools{margin-top:36px;font:500 13px/1.8 var(--mono);opacity:.75}
+
+.bio p{max-width:62ch;margin-top:14px;opacity:.9}
+.bio p:first-of-type{margin-top:0}
+
+.links{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,1fr)}
+.links a{display:flex;justify-content:space-between;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--b9-mid);text-decoration:none;font:700 clamp(22px,2.6vw,32px)/1 var(--sans);letter-spacing:-.02em;transition:color .22s var(--ease)}
+.links li:nth-child(odd) a{margin-right:22px}
+.links a small{font:500 12px/1 var(--mono);letter-spacing:.1em;color:var(--bv10)}
+.links a::after{content:"→";transition:transform .22s var(--ease)}
+.links a:hover{color:var(--o3)}
+.links a:hover::after{transform:translateX(6px)}
+
+footer{background:var(--b9-dark);border-top:1px solid var(--b9-mid);padding:22px 0;font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;opacity:.7}
+
+@media (max-width:760px){
+  .chain{grid-template-columns:1fr}
+  .chain div+div{padding-left:0;border-left:0}
+  .links{grid-template-columns:1fr}
+  .links li:nth-child(odd) a{margin-right:0}
+  .top span:last-child{display:none}
+}
+</style>
+</head>
+<body>
+<header class="wrap hero">
+  <div class="top"><span>3.141Hz</span><span>Cairo, Egypt</span></div>
+  <h1 class="name"><span>Hazem</span><span>Zakaria</span></h1>
+  <div>
+    <canvas class="wave" aria-hidden="true"></canvas>
+    <div class="lock">3.142 <i></i> Hz<b>.</b></div>
+    <p class="claim">Creative technologist. I build projection-mapping, laser and LED shows, and the tools that run them.</p>
+  </div>
+</header>
+
+<main>
+<section class="wrap" aria-labelledby="work">
+  <p class="label" id="work">What I do</p>
+  <p class="lead">I make light behave: on cars, walls, stages and the air above them.</p>
+  <div class="chain">
+    <div><h3>Projection mapping</h3><p>Content fitted to the real object, from measured geometry, never stretched. Multi-projector blends for launches and events.</p></div>
+    <div><h3>Laser</h3><p>Laser shows drawn and cued to the music, laser and projector aligned on the same surface.</p></div>
+    <div><h3>LED</h3><p>LED-wall content at true pixel scale, running on the same clock as the laser and projectors.</p></div>
+  </div>
+  <p class="tools">TouchDesigner · Unreal Engine · Resolume · Cinema 4D · Blender · Python</p>
+</section>
+
+<section class="wrap bio" aria-labelledby="about">
+  <p class="label" id="about">About</p>
+  <p>I'm Hazem Zakaria, working as 3.141Hz: the initials H·Z, read as a frequency, π ≈ 3.14.</p>
+  <p>I trained as a civil engineer at the German University in Cairo, taught myself 3D, and made 3D visuals for the Middle Eastern rap scene before an MA in 3D Animation for Film &amp; Games at Cologne Game Lab and ifs in Germany. Today I build projection-mapping, laser and LED shows in Cairo: car and product reveals, brand launches, concerts and weddings.</p>
+</section>
+
+<section class="wrap" aria-labelledby="find">
+  <p class="label" id="find">Find me</p>
+  <ul class="links">
+    <li><a href="https://www.instagram.com/3.141hz/" rel="me">Instagram <small>@3.141hz</small></a></li>
+    <li><a href="https://www.linkedin.com/in/hazemzakaria3141hz/" rel="me">LinkedIn <small>hazemzakaria3141hz</small></a></li>
+    <li><a href="https://www.behance.net/hazemVIII" rel="me">Behance <small>hazemVIII</small></a></li>
+    <li><a href="https://github.com/hazemzak" rel="me">GitHub <small>hazemzak</small></a></li>
+  </ul>
+</section>
+</main>
+
+<footer><div class="wrap"><span>Hazem Zakaria · 3.141Hz</span><span>Let's tune something // together</span></div></footer>
+
+<script>
+// signature: a laser-orange (CR1 index 3) sine at exactly 3.142 Hz scrolling across the hero
+(() => {
+  const c = document.querySelector('.wave'), x = c.getContext('2d');
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const HZ = 3.142, CYCLES = 3.5; // visible wavelengths across the width
+  function size(){ const r = devicePixelRatio || 1; c.width = c.clientWidth * r; c.height = c.clientHeight * r; x.setTransform(r,0,0,r,0,0); }
+  function draw(t){
+    const w = c.clientWidth, h = c.clientHeight, mid = h / 2, a = h * 0.32;
+    x.clearRect(0,0,w,h);
+    x.beginPath();
+    for (let px = 0; px <= w; px += 2){
+      const ph = (px / w) * CYCLES * 2 * Math.PI - t * HZ * 2 * Math.PI / 1000;
+      const env = Math.sin(Math.PI * px / w); // fade in/out at the edges
+      x.lineTo(px, mid + Math.sin(ph) * a * env);
+    }
+    x.strokeStyle = '#ff7a1a'; x.lineWidth = 2.5;
+    x.shadowColor = '#ff9a3c'; x.shadowBlur = 14;
+    x.stroke();
+    if (!still) requestAnimationFrame(draw);
+  }
+  size(); addEventListener('resize', () => { size(); if (still) draw(0); });
+  still ? draw(0) : requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
