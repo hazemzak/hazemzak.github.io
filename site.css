@@ -129,7 +129,7 @@ svg{display:block}
 .contact h2{font:500 clamp(44px,7.6vw,120px)/1 var(--display);letter-spacing:-.055em}
 .contact h2 span{display:block;color:var(--laser)}
 .contact-note{max-width:26ch;font-size:15px;padding-bottom:8px}
-.profiles{list-style:none;padding:0;margin:64px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.profiles{list-style:none;padding:0;margin:64px 0 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px}
 .profiles a{position:relative;display:block;padding:23px 24px 22px 0;border-top:1px solid var(--rule);font:500 20px/1.2 var(--display);letter-spacing:-.02em;transition:color .2s}
 .profiles a::after{content:"↗";position:absolute;right:0;top:24px;color:var(--laser);font-size:17px;transition:transform .3s var(--ease)}
 .profiles a:hover{color:var(--laser)}
