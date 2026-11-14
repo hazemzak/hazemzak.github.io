@@ -12,6 +12,11 @@ document.querySelectorAll('.hero').forEach(hero => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const fine = matchMedia('(hover: hover) and (pointer: fine)');
   const ink = trace.getContext('2d');
+  // Role palette lives in site.css; both renderers consume the same colours.
+  const styles = getComputedStyle(hero);
+  const palette = Object.fromEntries(['bg', 'rule', 'tonic', 'laser'].map(role =>
+    [role, styles.getPropertyValue(`--${role}`).trim()]));
+  const rgb = hex => [1, 3, 5].map(start => parseInt(hex.slice(start, start + 2), 16) / 255);
   let gl, program, uniforms, fallback, lost = false;
   let width = 1, height = 1, scale = 1, bounds, titleBounds;
   let frame = 0, last = 0, elapsed = 0, lastDraw = 0, visible = true;
@@ -23,6 +28,7 @@ document.querySelectorAll('.hero').forEach(hero => {
     uniform vec2 resolution, size, pointer;
     uniform float time, cell, reveal;
     uniform sampler2D atlas;
+    uniform vec3 bgColor, ruleColor, fieldColor;
     void main(){
       vec2 pixel=vec2(gl_FragCoord.x/resolution.x,1.-gl_FragCoord.y/resolution.y)*size;
       vec2 id=floor(pixel/cell), local=fract(pixel/cell);
@@ -41,11 +47,8 @@ document.querySelectorAll('.hero').forEach(hero => {
       float glyph=floor(clamp(light*7.,0.,6.));
       float character=texture2D(atlas,vec2((glyph+local.x)/7.,local.y)).a;
       float marks=mix(dotMask,character,lens);
-      vec3 bg=vec3(27.,23.,28.)/255.;
-      vec3 rule=vec3(74.,45.,87.)/255.;
-      vec3 lead=vec3(195.,115.,222.)/255.;
-      vec3 pigment=mix(rule,lead,pow(light,1.7)*.85);
-      gl_FragColor=vec4(mix(bg,pigment,marks*(.11+light*.79)),1.);
+      vec3 pigment=mix(ruleColor,fieldColor,pow(light,1.7)*.85);
+      gl_FragColor=vec4(mix(bgColor,pigment,marks*(.11+light*.79)),1.);
     }`;
 
   function compile(type, source) {
@@ -77,14 +80,17 @@ document.querySelectorAll('.hero').forEach(hero => {
     gl.enableVertexAttribArray(position);
     gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
     uniforms = {};
-    ['resolution','size','pointer','time','cell','reveal','atlas'].forEach(key => {
+    ['resolution','size','pointer','time','cell','reveal','atlas','bgColor','ruleColor','fieldColor'].forEach(key => {
       uniforms[key] = gl.getUniformLocation(program, key);
     });
+    gl.uniform3fv(uniforms.bgColor, rgb(palette.bg));
+    gl.uniform3fv(uniforms.ruleColor, rgb(palette.rule));
+    gl.uniform3fv(uniforms.fieldColor, rgb(palette.tonic));
     const atlas = document.createElement('canvas');
     atlas.width = 112; atlas.height = 16;
     const context = atlas.getContext('2d');
     if (!context) throw new Error('Character atlas unavailable');
-    context.fillStyle = '#C373DE';
+    context.fillStyle = palette.tonic;
     context.font = 'bold 14px monospace';
     context.textAlign = 'center';
     context.textBaseline = 'middle';
@@ -135,7 +141,7 @@ document.querySelectorAll('.hero').forEach(hero => {
           const wave = Math.pow(.5 + .5 * Math.sin(b * 11 + warp + elapsed * .16), 2.7);
           const power = wave * Math.exp(-(a * a * .44 + b * b * 1.9) * 1.8) * Math.sin(Math.PI * py / height);
           fallback.globalAlpha = .12 + power * .7;
-          fallback.fillStyle = power > .52 ? '#C373DE' : '#4A2D57';
+          fallback.fillStyle = power > .52 ? palette.tonic : palette.rule;
           if (Math.hypot((px - x * width) / height, py / height - y) < .2) {
             fallback.fillText('3.141hz'[Math.min(6, Math.floor(power * 7))], px, py);
           } else {
@@ -163,7 +169,7 @@ document.querySelectorAll('.hero').forEach(hero => {
       const py = cy + ry * Math.sin(t * ratio + phase + (y - .47) * .55);
       if (i) path.lineTo(px, py); else path.moveTo(px, py);
     }
-    ink.strokeStyle = '#73DED5';
+    ink.strokeStyle = palette.laser;
     ink.lineJoin = 'round'; ink.lineCap = 'round';
     // Wide low-energy passes form the glow, with no expensive blur filter.
     for (const [line, alpha] of [[9,.025],[4,.09],[1.15,.86]]) {

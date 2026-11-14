@@ -254,11 +254,11 @@
     ]
   }
 </script>
-<meta property="og:image" content="https://hazemzak.github.io/hazem-zakaria.jpg">
-<meta property="og:image:width" content="281">
-<meta property="og:image:height" content="281">
-<meta property="og:image:alt" content="Portrait of Hazem Zakaria (3.141Hz), creative technologist and 3D artist in Cairo.">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://hazemzak.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hazem Zakaria — 3.141Hz. Violet frequency portrait with a blue-green laser trace.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#1B171C">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preload" href="fonts/tektur-name.woff2" as="font" type="font/woff2" crossorigin>
@@ -314,32 +314,61 @@
   </section>
   <section class="section work wrap" id="work" aria-labelledby="work-title">
     <div class="section-heading"><div><p class="eyebrow">Projects // Documentation to come</p><h2 class="large work-title" id="work-title">Work in light.</h2></div><p class="work-intro">Project films and stills will live here. For now, follow the experiments on <a href="https://www.instagram.com/3.141hz/" rel="me">Instagram ↗</a>.</p></div>
-    <div class="projects">
-      <!-- TODO: real project -->
-      <article class="project">
-        <div class="project-media" role="img" aria-label="Placeholder for project media; no project published yet">
-          <!-- Replace this placeholder with an img (with alt text), or a video with controls, playsinline and a poster. -->
-          <svg viewBox="0 0 160 120" fill="none" stroke="currentColor" aria-hidden="true"><path d="M25 28 139 16v86L25 88V28ZM25 28l114 74M139 16 25 88"/><path d="M75 54v16m-8-8h16" stroke="#DE73BA"/></svg>
-          <span class="media-format">16 : 9</span><span class="media-label">Media placeholder</span>
-        </div>
-        <h3>Project, Venue, City</h3><p>Project description to follow.</p>
-      </article>
-      <!-- TODO: real project -->
-      <article class="project">
-        <div class="project-media" role="img" aria-label="Placeholder for project media; no project published yet">
-          <svg viewBox="0 0 160 120" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="80" cy="60" r="39"/><circle cx="80" cy="60" r="26"/><path d="M28 60h104M80 8v104"/><circle cx="80" cy="60" r="3" stroke="#DE73BA"/></svg>
-          <span class="media-format">16 : 9</span><span class="media-label">Media placeholder</span>
-        </div>
-        <h3>Project, Venue, City</h3><p>Project description to follow.</p>
-      </article>
-      <!-- TODO: real project -->
-      <article class="project">
-        <div class="project-media" role="img" aria-label="Placeholder for project media; no project published yet">
-          <svg viewBox="0 0 160 120" fill="none" stroke="currentColor" aria-hidden="true"><path d="M24 24h112v72H24zM24 48h112M24 72h112M52 24v72M80 24v72M108 24v72"/><path d="M74 60h12m-6-6v12" stroke="#DE73BA"/></svg>
-          <span class="media-format">16 : 9</span><span class="media-label">Media placeholder</span>
-        </div>
-        <h3>Project, Venue, City</h3><p>Project description to follow.</p>
-      </article>
+    <div class="work-controls" id="work-controls" hidden>
+      <fieldset class="work-switch">
+        <legend class="sr-only">Group work</legend>
+        <label><input type="radio" name="work-view" value="field" checked aria-controls="work-results"><span>By field</span></label>
+        <label><input type="radio" name="work-view" value="year" aria-controls="work-results"><span>By year</span></label>
+      </fieldset>
+      <p class="work-count" id="work-count" role="status" aria-live="polite" aria-atomic="true"></p>
+    </div>
+    <svg class="work-symbols" width="0" height="0" aria-hidden="true"><defs><symbol id="work-placeholder" viewBox="0 0 160 120"><g fill="none" stroke="currentColor"><path d="M25 28 139 16v86L25 88V28ZM25 28l114 74M139 16 25 88"/><path class="media-cross" d="M75 54v16m-8-8h16"/></g></symbol></defs></svg>
+    <div id="work-results">
+      <!-- WORK DATA: this is the only project list. Add one li; work.js derives both views.
+           data-period is a documented year/range, or empty for an undated entry.
+           Employment periods are labelled as such; they are not project release dates.
+           Media may replace the placeholder with an img, or a video with controls and a poster. -->
+      <ul class="projects" id="work-list" role="list">
+        <li class="project" data-field="Projection mapping" data-period="2026">
+          <div class="project-media"><svg viewBox="0 0 160 120" aria-hidden="true"><use href="#work-placeholder"/></svg><span class="media-format">16 : 9</span><span class="media-label">Documentation to come</span></div>
+          <p class="project-meta"><span>Projection mapping</span><span>2026</span></p>
+          <h3>Ali Zaraay — Crawling on the Dust</h3>
+          <p class="project-credit">Projection mapping artist</p>
+          <p>Projection over the prints and a projection room for Ali Zaraay’s solo exhibition, curated by Farah Hallaba at Ubuntu Art Gallery, Zamalek.</p>
+          <a class="project-link" href="https://www.instagram.com/p/Det7FthCGS1/">Artist’s credit <span aria-hidden="true">↗</span><span class="sr-only"> for Crawling on the Dust</span></a>
+        </li>
+        <li class="project" data-field="Music video / direction" data-period="2026">
+          <div class="project-media"><svg viewBox="0 0 160 120" aria-hidden="true"><use href="#work-placeholder"/></svg><span class="media-format">16 : 9</span><span class="media-label">Documentation to come</span></div>
+          <p class="project-meta"><span>Music video / direction</span><span>2026</span></p>
+          <h3>Manos — Mali W Malo</h3>
+          <p class="project-credit">Direction / game development / video production</p>
+          <p>The official visualizer, built as a playable game and supported by the 2048 Foundation.</p>
+          <a class="project-link" href="https://www.youtube.com/watch?v=yYaW_pDkwK8">Watch visualizer <span aria-hidden="true">↗</span><span class="sr-only"> — Manos, Mali W Malo</span></a>
+        </li>
+        <li class="project" data-field="Music video / direction" data-period="2020">
+          <div class="project-media"><svg viewBox="0 0 160 120" aria-hidden="true"><use href="#work-placeholder"/></svg><span class="media-format">16 : 9</span><span class="media-label">Documentation to come</span></div>
+          <p class="project-meta"><span>Music video / direction</span><span>2020</span></p>
+          <h3>Zaid Khaled x El Waili — Lame</h3>
+          <p class="project-credit">3D Design &amp; Animation</p>
+          <p>The official music video. Made alone in Cinema 4D and Redshift.</p>
+          <a class="project-link" href="https://www.youtube.com/watch?v=cLSMG0LA3gM">Watch music video <span aria-hidden="true">↗</span><span class="sr-only"> — Zaid Khaled x El Waili, Lame</span></a>
+        </li>
+        <li class="project" data-field="3D / AR" data-period="2023–2024">
+          <div class="project-media"><svg viewBox="0 0 160 120" aria-hidden="true"><use href="#work-placeholder"/></svg><span class="media-format">16 : 9</span><span class="media-label">Documentation to come</span></div>
+          <p class="project-meta"><span>3D / AR</span><span>2023–2024 · employment period</span></p>
+          <h3>HUGO BOSS — 3D &amp; AR</h3>
+          <p class="project-credit">3D Artist / Web3 &amp; immersive tech</p>
+          <p>The AR “Smart Mirror” and animated collection loops for BOSS 100 Years, in Metzingen, Germany.</p>
+        </li>
+        <li class="project" data-field="3D / AR" data-period="2022–2023">
+          <div class="project-media"><svg viewBox="0 0 160 120" aria-hidden="true"><use href="#work-placeholder"/></svg><span class="media-format">16 : 9</span><span class="media-label">Documentation to come</span></div>
+          <p class="project-meta"><span>3D / AR</span><span>2022–2023 · employment period</span></p>
+          <h3>SYMSON — Dynamic pricing</h3>
+          <p class="project-credit">3D Generalist</p>
+          <p>The 3D for the scroll-animated dynamic-pricing page, plus models and animation for campaigns and webinars.</p>
+          <a class="project-link" href="https://www.symson.com/algorithm">View page <span aria-hidden="true">↗</span><span class="sr-only"> — SYMSON dynamic pricing</span></a>
+        </li>
+      </ul>
     </div>
   </section>
   <section class="section about wrap" id="about" aria-labelledby="about-title">
@@ -442,5 +471,6 @@
 <footer class="footer wrap"><span>Hazem Zakaria // 3.141Hz</span><span>Cairo, Egypt</span><time datetime="2026-11-13">Last updated 13 November 2026</time><a href="#top">Back to signal ↑</a></footer>
 <script>for(const a of document.querySelectorAll('a[href="#path"]'))a.addEventListener("click",()=>{document.getElementById("path-details").open=true});if(location.hash==="#path")document.getElementById("path-details").open=true</script>
 <script src="hero.js" defer></script>
+<script src="work.js" defer></script>
 </body>
 </html>
