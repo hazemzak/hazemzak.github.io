@@ -41,9 +41,9 @@ document.querySelectorAll('.hero').forEach(hero => {
       float glyph=floor(clamp(light*7.,0.,6.));
       float character=texture2D(atlas,vec2((glyph+local.x)/7.,local.y)).a;
       float marks=mix(dotMask,character,lens);
-      vec3 bg=vec3(7.,17.,44.)/255.;
-      vec3 rule=vec3(42.,79.,196.)/255.;
-      vec3 lead=vec3(191.,208.,255.)/255.;
+      vec3 bg=vec3(27.,23.,28.)/255.;
+      vec3 rule=vec3(74.,45.,87.)/255.;
+      vec3 lead=vec3(195.,115.,222.)/255.;
       vec3 pigment=mix(rule,lead,pow(light,1.7)*.85);
       gl_FragColor=vec4(mix(bg,pigment,marks*(.11+light*.79)),1.);
     }`;
@@ -84,7 +84,7 @@ document.querySelectorAll('.hero').forEach(hero => {
     atlas.width = 112; atlas.height = 16;
     const context = atlas.getContext('2d');
     if (!context) throw new Error('Character atlas unavailable');
-    context.fillStyle = '#bfd0ff';
+    context.fillStyle = '#C373DE';
     context.font = 'bold 14px monospace';
     context.textAlign = 'center';
     context.textBaseline = 'middle';
@@ -135,7 +135,7 @@ document.querySelectorAll('.hero').forEach(hero => {
           const wave = Math.pow(.5 + .5 * Math.sin(b * 11 + warp + elapsed * .16), 2.7);
           const power = wave * Math.exp(-(a * a * .44 + b * b * 1.9) * 1.8) * Math.sin(Math.PI * py / height);
           fallback.globalAlpha = .12 + power * .7;
-          fallback.fillStyle = power > .52 ? '#bfd0ff' : '#2a4fc4';
+          fallback.fillStyle = power > .52 ? '#C373DE' : '#4A2D57';
           if (Math.hypot((px - x * width) / height, py / height - y) < .2) {
             fallback.fillText('3.141hz'[Math.min(6, Math.floor(power * 7))], px, py);
           } else {
@@ -163,7 +163,7 @@ document.querySelectorAll('.hero').forEach(hero => {
       const py = cy + ry * Math.sin(t * ratio + phase + (y - .47) * .55);
       if (i) path.lineTo(px, py); else path.moveTo(px, py);
     }
-    ink.strokeStyle = '#ff7a1a';
+    ink.strokeStyle = '#73DED5';
     ink.lineJoin = 'round'; ink.lineCap = 'round';
     // Wide low-energy passes form the glow, with no expensive blur filter.
     for (const [line, alpha] of [[9,.025],[4,.09],[1.15,.86]]) {
