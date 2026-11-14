@@ -217,7 +217,7 @@ document.querySelectorAll('.hero').forEach(hero => {
     button.setAttribute('aria-pressed', String(paused));
     button.setAttribute('aria-label', paused ? 'Play animation' : 'Pause animation');
     button.textContent = paused ? 'Play motion' : 'Pause motion';
-    hint.textContent = paused ? 'Still signal / ratio held' : fine.matches ? 'Move to detune · return to π' : 'Touch to detune';
+    hint.textContent = paused ? 'Still signal / ratio held' : fine.matches ? 'Move to detune · return to π' : 'Tap to detune';
   }
   function measure() {
     bounds = scene.getBoundingClientRect();
@@ -245,11 +245,19 @@ document.querySelectorAll('.hero').forEach(hero => {
     active = true;
   }
   function release() { active = false; tx = .68; ty = .47; }
-  scene.addEventListener('pointermove', point, { passive: true });
-  scene.addEventListener('pointerdown', point, { passive: true });
-  scene.addEventListener('pointerleave', release);
-  scene.addEventListener('pointercancel', release);
-  scene.addEventListener('pointerup', event => { if (event.pointerType !== 'mouse') release(); });
+  // Touch only reacts to a tap: a swipe that starts on the hero is a scroll, and following it
+  // made the trace jump to the finger and snap back when the browser took over the gesture.
+  let tapTimer = 0;
+  const mouseOnly = handler => event => { if (event.pointerType === 'mouse') handler(event); };
+  scene.addEventListener('pointermove', mouseOnly(point), { passive: true });
+  scene.addEventListener('pointerdown', mouseOnly(point), { passive: true });
+  scene.addEventListener('pointerleave', mouseOnly(release));
+  scene.addEventListener('click', event => {
+    if (fine.matches) return;
+    point(event);
+    clearTimeout(tapTimer);
+    tapTimer = setTimeout(release, 1400);
+  });
   button.addEventListener('click', () => { paused = !paused; controls(); sync(); });
   const preferenceChanged = () => {
     paused = reduced.matches; release();
